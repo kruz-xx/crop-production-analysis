@@ -7,8 +7,10 @@ from flask import Flask, request, render_template_string
 app = Flask(__name__)
 
 # Load your model and columns
-model = pickle.load(open("model/model.pkl", "rb"))
-model_columns = pickle.load(open("model/columns.pkl", "rb"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+model = pickle.load(open(os.path.join(BASE_DIR, "model/model.pkl"), "rb"))
+model_columns = pickle.load(open(os.path.join(BASE_DIR, "model/columns.pkl"), "rb"))
 
 # Professional Bootstrap Template
 HTML_TEMPLATE = """
